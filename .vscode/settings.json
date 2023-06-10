@@ -2,5 +2,12 @@
   "[python]": {
     "editor.defaultFormatter": "ms-python.autopep8"
   },
-  "python.formatting.provider": "none"
+  "python.formatting.provider": "none",
+  "python.languageServer": "Pylance",
+//   "files.associations": {
+//     "**/*.html": "html",
+//     "**/templates/**/*.html": "django-html",
+//     "**/templates/**/*": "django-txt",
+//     "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+// },
 }
