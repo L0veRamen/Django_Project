@@ -1,20 +1,15 @@
-{% load static %}
+{% extends 'reviews/base.html' %}
 
+{% block title %}
+  Your Review
+{% endblock title %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Review</title>
-  <link rel="stylesheet" href="{% static "reviews/styles.css" %}">
-</head>
-<body>
+{% block content %}
   <form action="/" method="POST">
     {% csrf_token %}
-     {% comment %} {% if has_error %}
-     <p>The form is invalid - please enter a valid username!</p>
-     {% endif %} {% endcomment %}
+    {% comment %} {% if has_error %}
+    <p>The form is invalid - please enter a valid username!</p>
+    {% endif %} {% endcomment %}
     {% comment %} <label for="username">Your Name</label>
     <input id="username" name="username" type="text" placeholder="Your Name" required> {% endcomment %}
     {% comment %} render HTML order {% endcomment %}
@@ -33,22 +28,15 @@
       {{form.rating }}
       {{form.rating.errors }}
     </div> {% endcomment %}
-
     {% for field in form  %}
       <div class="form-control {% if field.errors %}errors{% endif %} ">
         {{field.label_tag }}
         {{field }}
         {{field.errors }}
       </div>
-    
-  
     {% endfor %}
-
-
-
     {% comment %} <label for="email">Your Email</label> {% endcomment %}
     <button type="submit">Send</button>
   </form>
+{% endblock content %}
   
-</body>
-</html>
